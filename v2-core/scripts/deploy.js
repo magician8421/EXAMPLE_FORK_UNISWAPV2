@@ -36,15 +36,14 @@ async function deployUniswap() {
   );
   await token2.waitForDeployment();
 
+  const token1Address = await token1.getAddress();
+  const token2Address = await token2.getAddress();
   //token1和token2 在uniswap2 中创建pair
-  await factory.createPair(
-    await token1.getAddress(),
-    await token2.getAddress()
-  );
+  await factory.createPair(token1Address, token2Address);
 
   console.log("factory contract address is %s", await factory.getAddress());
-  console.log("token1 contract address is %s", await token1.getAddress());
-  console.log("token2 contract address is %s", await token2.getAddress());
+  console.log("token1 contract address is %s", token1Address);
+  console.log("token2 contract address is %s", token2Address);
 
   //查看pair对创建结果
   console.log("pair length", await factory.allPairsLength());
@@ -55,14 +54,24 @@ async function deployUniswap() {
 
   const pair = await hre.ethers.getContractAt(
     abi,
-    await factory.getPair(
-      await token1.getAddress(),
-      await token2.getAddress(),
-      signer1
-    )
+    await factory.getPair(token1Address, token2Address, signer1)
   );
   //检查pair对余额
-  console.log("pair reverse ", await pair.getReserves());
+  //在uniswapv2中 pair会进行排序
+  const reservers = await pair.getReserves();
+  if (token1Address < token2Address) {
+    console.log(
+      "checking pair reverse token1=%s,token2=%s",
+      reservers[0],
+      reservers[1]
+    );
+  } else {
+    console.log(
+      "checking pair reverse token1=%s,token2=%s",
+      reservers[1],
+      reservers[0]
+    );
+  }
 
   //开始写入合约配置
   //写入工厂合约地址
