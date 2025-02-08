@@ -1,0 +1,17 @@
+{
+  "name": "example_fork_mainnet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^2.3.0",
+    "@uniswap/lib": "^4.0.1-alpha",
+    "hardhat": "^2.22.18"
+  }
+}
