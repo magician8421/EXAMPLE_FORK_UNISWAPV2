@@ -5,6 +5,7 @@ const {
 } = require("../../configs/scripts/utils");
 
 async function deployPeriphery() {
+  console.log("\n\n🐵...执行部署periphery合约脚本⏰");
   //因为UniswapV2使用weth来代替eth 所以需要部署一次weth
   const wethContract = await hre.ethers.getContractFactory("WETH9");
   const weth = await wethContract.deploy();

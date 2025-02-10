@@ -7,6 +7,7 @@ const {
   abi: abiErc20,
 } = require("../artifacts/contracts/interfaces/IERC20.sol/IERC20.json");
 async function swap() {
+  console.log("\n\n🐴...执行swap脚本⏰");
   const routerAddress =
     getSavedContractAddresses()[hre.network.name]["UniswapV2Router"];
   const token1Address = getSavedContractAddresses()[hre.network.name]["Token1"];

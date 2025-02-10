@@ -11,8 +11,9 @@ const {
 const {
   abi: factoryAbi,
 } = require("../../v2-core/artifacts/contracts/UniswapV2Factory.sol/UniswapV2Factory.json");
-const { reverse } = require("dns");
+
 async function addLiquidity() {
+  console.log("\n\n🐷...执行添加流动性脚本⏰");
   const routerAddress =
     getSavedContractAddresses()[hre.network.name]["UniswapV2Router"];
   const token1Address = getSavedContractAddresses()[hre.network.name]["Token1"];

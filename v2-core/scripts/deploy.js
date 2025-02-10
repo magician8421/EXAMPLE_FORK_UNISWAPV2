@@ -5,6 +5,7 @@ const {
 } = require("../artifacts/contracts/UniswapV2Pair.sol/UniswapV2Pair.json");
 
 async function deployUniswap() {
+  console.log("\n🐶...执行部署core合约脚本⏰");
   //token1初始化的数量
   const tokenOneAmount = "1000";
   //token2初始化数量

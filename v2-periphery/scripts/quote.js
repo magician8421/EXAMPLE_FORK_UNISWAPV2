@@ -4,6 +4,7 @@ const {
   abi,
 } = require("../artifacts/contracts/UniswapV2Router02.sol/UniswapV2Router02.json");
 async function quote() {
+  console.log("\n\n🐰...执行测试报价脚本⏰");
   const quoteAmount0 = "5";
   //获取router协议
   const routerAddress =

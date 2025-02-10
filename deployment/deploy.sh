@@ -9,8 +9,20 @@ cd ../v2-periphery && npx hardhat run scripts/deploy.js --network localhost
 # 执行 addLiquidity 脚本(测试添加流动性)
 npx hardhat run scripts/addLiquidity.js --network localhost
 
+# 输出状态
+npx hardhat run scripts/status.js --network localhost
+
 # 执行 quote 脚本（测试报价）
 npx hardhat run scripts/quote.js --network localhost
 
 # 执行 swap 脚本（测试交换）
 npx hardhat run scripts/swap.js --network localhost
+
+# 输出状态
+npx hardhat run scripts/status.js --network localhost
+
+# 执行 removeLiquidity 脚本（测试移除流动性）
+npx hardhat run scripts/removeLiquidity.js --network localhost
+
+# 输出状态
+npx hardhat run scripts/status.js --network localhost

@@ -115,6 +115,7 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         TransferHelper.safeTransferFrom(tokenB, msg.sender, pair, amountB);
         console.log("tokenB transfer ok");
         liquidity = IUniswapV2Pair(pair).mint(to);
+        console.log(liquidity,"liquidity");
         console.log("mint ok");
     }
 
@@ -156,8 +157,8 @@ contract UniswapV2Router02 is IUniswapV2Router02 {
         address tokenA,
         address tokenB,
         uint liquidity,
-        uint amountAMin,
-        uint amountBMin,
+        uint amountAMin, // 控制滑点
+        uint amountBMin, // 控制滑点
         address to,
         uint deadline
     )
